@@ -5,16 +5,25 @@ var gameInfo;
 
 var intervalId;
 var timerDelay = 100;
+
+//Index of the current current. (confusing)
 var currentIndex = -1;
+
+//Time counters for object spawning that actually always have similar values now that I think of it.
 var projectileCounter = 0;
 var bubbleCounter = 0;
 
 
 //Constants
+
 //The lower the threshold, the more often it spawns.
 var PROJECTILE_SPAWN_TRESHOLD = 20;
 var BUBBLE_SPAWN_THRESHOLD = 30;
+
+//Letters for the bubbles
 var LETTERS = ["H", "E", "L", "P"];
+
+//Width, Height
 var WIDTH = 400;
 var HEIGHT = 800;
 
@@ -29,6 +38,7 @@ function initializeGameInfo(){
 	return gameInfo;
 }
 
+//Initialization function
 function init(){
 	gameInfo = initializeGameInfo();
 	redrawAll();
@@ -53,6 +63,7 @@ function onMouseDown(event){
 	console.log("Mouse Down: " + x + ", " + y);
 }
 
+//distance helper
 function lineDistance(x, y, x0, y0){
 	return Math.abs(Math.sqrt((x -= x0) * x + (y -= y0) * y));
 }

@@ -25,12 +25,14 @@ var LETTERS = ["H", "E", "L", "P"];
 
 //Width, Height
 var WIDTH = 400;
-var HEIGHT = 800;
+var HEIGHT = 600;
 
+//Initial time
+var TIMER_INITIAL=300;
 
 function initializeGameInfo(){
 	var gameInfo = new Object();
-	gameInfo.timer = 300;
+	gameInfo.timer = TIMER_INITIAL;
 	gameInfo.currentRemaining = 1000;
 	gameInfo.projectiles = [];
 	gameInfo.bubbles = [];
@@ -200,10 +202,13 @@ function drawTimer(){
 	ctx.beginPath();
 	ctx.font = "15px Arial";
   ctx.fillStyle = "black";
-  ctx.fillText("Air Left",10,38);
+  ctx.textAlign = "left";
+  ctx.fillText("Air",10,30);
+  //ctx.fillText(gameInfo.timer + "", 40, 40);
+
   //Create progress bar
-  ctx.fillStyle = "#1826B0"
-  ctx.fillRect(10,10,90,10);
+  ctx.fillStyle = "#1826B0" //blue
+  ctx.fillRect(10, 5,WIDTH*.9*(gameInfo.timer/TIMER_INITIAL),10);
 }
 
 function redrawAll(){

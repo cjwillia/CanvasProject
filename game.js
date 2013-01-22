@@ -196,11 +196,14 @@ function drawProjectiles(){
 }
 
 function drawTimer(){
+  //Create number
 	ctx.beginPath();
-	ctx.font = "20px Arial";
-	ctx.textAlign = "center";
-	ctx.fillStyle = "black";
-	ctx.fillText(gameInfo.timer + "", 20, 20);
+	ctx.font = "15px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Air Left",10,38);
+  //Create progress bar
+  ctx.fillStyle = "#1826B0"
+  ctx.fillRect(10,10,90,10);
 }
 
 function redrawAll(){
